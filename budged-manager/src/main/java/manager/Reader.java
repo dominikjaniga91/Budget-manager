@@ -19,9 +19,10 @@ public class Reader {
         return SCANNER.nextDouble();
     }
 
-    public int readAction() {
+    int readAction() {
         int action = SCANNER.nextInt();
         SCANNER.nextLine();
+        System.out.println();
         return action;
     }
 }
