@@ -1,15 +1,18 @@
-package manager;
+package manager.budget;
 
 /**
  * @author Dominik_Janiga
  */
-public class Expense {
+public class Purchase {
+
     private final String name;
     private final double amount;
+    private final PurchaseCategory category;
 
-    public Expense(String name, double amount) {
+    public Purchase(String name, double amount, PurchaseCategory category) {
         this.name = name;
         this.amount = amount;
+        this.category = category;
     }
 
     @Override
@@ -18,6 +21,10 @@ public class Expense {
     }
 
     double getAmount() {
-        return amount;
+        return this.amount;
+    }
+
+    PurchaseCategory getCategory() {
+        return this.category;
     }
 }

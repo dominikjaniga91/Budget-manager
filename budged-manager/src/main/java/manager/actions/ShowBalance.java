@@ -1,22 +1,20 @@
 package manager.actions;
 
-import manager.BudgetManager;
-import manager.Expense;
-import manager.Reader;
+import manager.budget.BudgetManager;
 
 /**
  * @author Dominik_Janiga
  */
-class PurchaseList implements Action {
+public class ShowBalance implements Action {
 
     private final BudgetManager budgetManager;
 
-    PurchaseList(BudgetManager budgetManager) {
+    public ShowBalance(BudgetManager budgetManager) {
         this.budgetManager = budgetManager;
     }
 
     @Override
     public void perform() {
-        this.budgetManager.showExpenses();
+        this.budgetManager.printBalance();
     }
 }

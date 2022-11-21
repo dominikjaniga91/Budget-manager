@@ -1,6 +1,4 @@
-package manager;
-
-import java.math.BigDecimal;
+package manager.budget;
 
 /**
  * @author Dominik_Janiga
@@ -17,11 +15,11 @@ class Account {
         this.balance -= purchase;
     }
 
-    public void printBalance() {
+    void printBalance() {
         System.out.printf("Balance:  $%.2f%n%n", this.balance);
     }
 
-    public boolean canPurchase(Expense expense) {
-        return this.balance > expense.getAmount();
+    boolean canPurchase(Purchase purchase) {
+        return this.balance > purchase.getAmount();
     }
 }
