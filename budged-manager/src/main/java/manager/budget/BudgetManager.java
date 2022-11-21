@@ -1,6 +1,7 @@
 package manager.budget;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -58,14 +59,14 @@ public class BudgetManager {
         this.account.addIncome(income);
     }
 
-    public void addExpense(Purchase purchase) {
+    public void addPurchase(Purchase purchase) {
         if (this.account.canPurchase(purchase)) {
             this.purchases.add(purchase);
             this.account.addPurchase(purchase.getAmount());
         }
     }
 
-    public void showExpenses() {
+    public void showPurchases() {
         if(this.purchases.isEmpty()) {
             System.out.println("\nThe purchase list is empty\n");
         } else {
@@ -76,12 +77,12 @@ public class BudgetManager {
         }
     }
 
-    public void showExpensesByCategory(PurchaseCategory category) {
+    public void showPurchasesByCategory(PurchaseCategory category) {
 
         List<Purchase> purchasesForCategory = this.purchases.stream()
                 .filter(purchase -> purchase.getCategory() == category)
                 .collect(Collectors.toList());
-        System.out.println(category + ":");
+        System.out.println(category.getName() + ":");
         if (purchasesForCategory.isEmpty()) {
             System.out.println("The purchase list is empty\n");
         } else {
@@ -91,7 +92,7 @@ public class BudgetManager {
         }
     }
 
-    public boolean hasNotExpenses() {
+    public boolean hasNotPurchases() {
         return this.purchases.isEmpty();
     }
 
@@ -109,6 +110,14 @@ public class BudgetManager {
 
     private double sumPurchases(Stream<Purchase> purchaseStream) {
         return purchaseStream.mapToDouble(Purchase::getAmount).sum();
+    }
+
+    public List<Purchase> getAllPurchases() {
+        return Collections.unmodifiableList(this.purchases);
+    }
+
+    public void addAllPurchases(List<Purchase> purchases) {
+        this.purchases.addAll(purchases);
     }
 }
 

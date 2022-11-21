@@ -20,6 +20,10 @@ public class Purchase {
         return String.format("%s $%.2f", this.name, this.amount);
     }
 
+    public String convertToString() {
+        return String.format("%s %.2f %s", this.name, this.amount, this.category);
+    }
+
     double getAmount() {
         return this.amount;
     }

@@ -1,9 +1,9 @@
 package manager.actions;
 
+import manager.Reader;
 import manager.budget.BudgetManager;
 import manager.budget.Purchase;
 import manager.budget.PurchaseCategory;
-import manager.Reader;
 
 /**
  * @author Dominik_Janiga
@@ -29,7 +29,7 @@ public class AddPurchase implements Action {
         System.out.println("Enter its price:");
         double purchasePrice = this.reader.readReadAmount();
         Purchase purchase = new Purchase(purchaseName, purchasePrice, this.purchaseCategory);
-        this.budgetManager.addExpense(purchase);
+        this.budgetManager.addPurchase(purchase);
         System.out.println("Purchase was added!\n");
     }
 }

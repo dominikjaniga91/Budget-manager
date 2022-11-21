@@ -1,11 +1,8 @@
 package manager.menu;
 
-import manager.budget.BudgetManager;
 import manager.Reader;
-import manager.actions.AddIncome;
-import manager.actions.AddPurchase;
-import manager.actions.ShowBalance;
-import manager.actions.ShowPurchaseList;
+import manager.actions.*;
+import manager.budget.BudgetManager;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -56,6 +53,8 @@ public class MenuInitializer {
         rootMenuOptions.put(new Option(2, "Add purchase"), purchaseTypeMenu);
         rootMenuOptions.put(new Option(3, "Show list of purchases"), showPurchasesMenu);
         rootMenuOptions.put(new Option(4, "Balance"), new ActionMenu(root, new ShowBalance(budgetManager)));
+        rootMenuOptions.put(new Option(5, "Save"), new ActionMenu(root, new SavePurchases(budgetManager)));
+        rootMenuOptions.put(new Option(6, "Load"), new ActionMenu(root, new LoadPurchases(budgetManager)));
         rootMenuOptions.put(new Option(0, "Exit"), new ExitMenu());
 
         return root;

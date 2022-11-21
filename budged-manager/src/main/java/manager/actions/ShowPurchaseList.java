@@ -19,15 +19,15 @@ public class ShowPurchaseList implements Action {
     @Override
     public void perform() {
         if (this.purchaseCategory == PurchaseCategory.ALL) {
-            this.budgetManager.showExpenses();
+            this.budgetManager.showPurchases();
         } else {
-            this.budgetManager.showExpensesByCategory(this.purchaseCategory);
+            this.budgetManager.showPurchasesByCategory(this.purchaseCategory);
         }
     }
 
     @Override
     public ActionInspector canPerformAction() {
-        if(this.budgetManager.hasNotExpenses()) {
+        if(this.budgetManager.hasNotPurchases()) {
             return new ActionInspector(false, "The purchase list is empty!\n");
         }
         return new ActionInspector(true);
