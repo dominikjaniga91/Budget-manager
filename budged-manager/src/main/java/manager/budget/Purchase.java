@@ -21,7 +21,7 @@ public class Purchase {
     }
 
     public String convertToString() {
-        return String.format("%s %.2f %s", this.name, this.amount, this.category);
+        return String.format("%s:%.2f:%s", this.name, this.amount, this.category);
     }
 
     double getAmount() {
