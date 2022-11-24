@@ -11,7 +11,7 @@ class Account {
         this.balance += income;
     }
 
-    void addPurchase(double purchase) {
+    void decreaseBalance(double purchase) {
         this.balance -= purchase;
     }
 

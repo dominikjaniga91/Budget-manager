@@ -62,7 +62,7 @@ public class BudgetManager {
     public void addPurchase(Purchase purchase) {
         if (this.account.canPurchase(purchase)) {
             this.purchases.add(purchase);
-            this.account.addPurchase(purchase.getAmount());
+            this.account.decreaseBalance(purchase.getAmount());
         }
     }
 
@@ -118,6 +118,10 @@ public class BudgetManager {
 
     public void addAllPurchases(List<Purchase> purchases) {
         this.purchases.addAll(purchases);
+        Double purchasesTotalAmount = this.purchases.stream()
+                .map(Purchase::getAmount)
+                .reduce(0.00, Double::sum);
+        this.account.decreaseBalance(purchasesTotalAmount);
     }
 }
 

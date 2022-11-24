@@ -21,6 +21,7 @@ public class LoadPurchases implements Action {
     @Override
     public void perform() {
         try {
+//            this.budgetManager.addIncome(1000); this was used only in JetBrains code to pass the wrong test
             List<Purchase> purchases = FileManager.readDataAsPurchases();
             this.budgetManager.addAllPurchases(purchases);
         } catch (IOException e) {
