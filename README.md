@@ -2,7 +2,6 @@
 This is an budget manager app created on JetBrains Academy. The process of creating app consist of 5 stages. Go directly to Stage 5 (not implemented yet) to see the final result. Every stage has a despription an examples.
 
 # Stage 1
-
 ## Description
 First, let’s implement the counting of your purchases. It’s much easier to analyze when your expenses are presented as a list. Read data from the console and at the end show the list of all purchases and its total amount.
 It should be displayed as follows: Total: $23.00
@@ -28,7 +27,6 @@ Total: $82.42
 ```
 
 # Stage 2
-
 ## Description
 Let's make your application more convenient. Only counting the expenses is a little bit sad, right?
 
@@ -45,7 +43,7 @@ When displaying the price or the total amount, print 2 numbers after the point.
 Example: $14.20
 Follow this rule in the next stages.
 
-Example
+### Example
 The greater-than symbol followed by a space (> ) represents the user input. Notice that it's not part of the input.
 
 ```
@@ -118,9 +116,7 @@ Bye!
 ```
 
 # Stage 3
-
-### Description
-
+## Description
 To better control the expens, we need to categorize our purchases. It helps to see how exactly your budget is distributed: you may be actually quite surprised!
 
 Implement a function that assigns a purchase to a specific category.
@@ -244,7 +240,6 @@ Bye!
 ```
 
 # Stage 4
-
 ## Description
 What's the point of counting the money if the results are lost and forgotten once you close the program? To allow for some long-term budget planning, we need to save purchases to file. Add items Save and Load to the menu.
 

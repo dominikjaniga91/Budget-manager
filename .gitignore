@@ -4,5 +4,6 @@ src/main/java/chocolate
 src/main/java/collection
 src/main/java/polymorphism
 src/main/java/encoder
-
-
+src/main/java/sorting
+src/main/java/strategy
+*.txt
