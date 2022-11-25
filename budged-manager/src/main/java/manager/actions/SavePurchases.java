@@ -21,5 +21,6 @@ public class SavePurchases implements Action {
     public void perform() {
         List<Purchase> allPurchases = this.budgetManager.getAllPurchases();
         FileManager.savePurchasesToFile(allPurchases);
+        System.out.println("Purchases were saved!\n");
     }
 }

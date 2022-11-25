@@ -3,7 +3,7 @@ package manager.budget;
 /**
  * @author Dominik_Janiga
  */
-public class Purchase {
+public class Purchase implements Comparable<Purchase> {
 
     private final String name;
     private final double amount;
@@ -21,14 +21,19 @@ public class Purchase {
     }
 
     public String convertToString() {
-        return String.format("%s %.2f %s", this.name, this.amount, this.category);
+        return String.format("%s:%.2f:%s", this.name, this.amount, this.category);
     }
 
-    double getAmount() {
+    public double getAmount() {
         return this.amount;
     }
 
-    PurchaseCategory getCategory() {
+    public PurchaseCategory getCategory() {
         return this.category;
+    }
+
+    @Override
+    public int compareTo(Purchase o) {
+        return Double.compare(this.amount, o.amount);
     }
 }

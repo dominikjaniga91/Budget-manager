@@ -23,10 +23,10 @@ final class DataReader {
     }
 
     private static Purchase convertToPurchase(final String purchaseRecord) {
-        String[] purchaseData = purchaseRecord.split(" ");
+        String[] purchaseData = purchaseRecord.split(":");
         String name = purchaseData[0];
         double amount = Double.parseDouble(purchaseData[1]);
-        PurchaseCategory category = PurchaseCategory.valueOf(purchaseData[2]);
+        PurchaseCategory category = PurchaseCategory.getByName(purchaseData[2]);
 
         return new Purchase(name, amount, category);
     }

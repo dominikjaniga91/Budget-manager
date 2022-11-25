@@ -23,6 +23,7 @@ public class LoadPurchases implements Action {
         try {
             List<Purchase> purchases = FileManager.readDataAsPurchases();
             this.budgetManager.addAllPurchases(purchases);
+            System.out.println("Purchases were loaded!\n");
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

@@ -2,9 +2,6 @@ package manager.menu;
 
 import manager.Reader;
 import manager.actions.*;
-import manager.actions.analyzer.PurchaseByCategorySorter;
-import manager.actions.analyzer.PurchaseConcreteCategorySorter;
-import manager.actions.analyzer.PurchaseSorter;
 import manager.budget.BudgetManager;
 
 import java.util.LinkedHashMap;
@@ -62,24 +59,16 @@ public class MenuInitializer {
         Map<Option, Menu> analyzerMenuOptions = new LinkedHashMap<>();
         Menu analyzerMenu = new MenuChild("How do you want to sort?", root, analyzerMenuOptions);
         analyzerMenuOptions.put(new Option(1, "Sort all purchases"), new ActionMenu(analyzerMenu, new PurchaseSorter(budgetManager)));
-
-        Map<Option, Menu> purchaseByCaregoryOptions = new LinkedHashMap<>();
-        Menu purchaseByCaregoryMenu = new MenuChild("Choose the type of purchase", analyzerMenu, purchaseByCaregoryOptions);
-        purchaseByCaregoryOptions.put(new Option(1, FOOD.getName()), new ActionMenu(analyzerMenu, new PurchaseByCategorySorter(this.budgetManager, FOOD)));
-        purchaseByCaregoryOptions.put(new Option(2, ENTERTAINMENT.getName()), new ActionMenu(analyzerMenu, new PurchaseByCategorySorter(this.budgetManager, ENTERTAINMENT)));
-        purchaseByCaregoryOptions.put(new Option(3, CLOTHES.getName()), new ActionMenu(analyzerMenu, new PurchaseByCategorySorter(this.budgetManager, CLOTHES)));
-        purchaseByCaregoryOptions.put(new Option(4, OTHER.getName()), new ActionMenu(analyzerMenu, new PurchaseByCategorySorter(this.budgetManager, OTHER)));
-
-        analyzerMenuOptions.put(new Option(2, "Sort by type"), purchaseByCaregoryMenu);
+        analyzerMenuOptions.put(new Option(2, "Sort by type"), new ActionMenu(analyzerMenu, new PurchaseByCategorySorter(this.budgetManager)));
 
 
         Map<Option, Menu> purchaseConcreteCaregoryOptions = new LinkedHashMap<>();
-        Menu purchaseConcreteCaregoryMenu = new MenuChild("Choose the type of purchase", analyzerMenu, purchaseConcreteCaregoryOptions);
+        Menu purchaseConcreteCategoryMenu = new MenuChild("Choose the type of purchase", analyzerMenu, purchaseConcreteCaregoryOptions);
         purchaseConcreteCaregoryOptions.put(new Option(1, FOOD.getName()), new ActionMenu(analyzerMenu, new PurchaseConcreteCategorySorter(this.budgetManager, FOOD)));
         purchaseConcreteCaregoryOptions.put(new Option(2, ENTERTAINMENT.getName()), new ActionMenu(analyzerMenu, new PurchaseConcreteCategorySorter(this.budgetManager, ENTERTAINMENT)));
         purchaseConcreteCaregoryOptions.put(new Option(3, CLOTHES.getName()), new ActionMenu(analyzerMenu, new PurchaseConcreteCategorySorter(this.budgetManager, CLOTHES)));
         purchaseConcreteCaregoryOptions.put(new Option(4, OTHER.getName()), new ActionMenu(analyzerMenu, new PurchaseConcreteCategorySorter(this.budgetManager, OTHER)));
-        analyzerMenuOptions.put(new Option(3, "Sort certain type"), purchaseConcreteCaregoryMenu);
+        analyzerMenuOptions.put(new Option(3, "Sort certain type"), purchaseConcreteCategoryMenu);
         analyzerMenuOptions.put(new Option(4, "Back"), new BackMenu(root));
 
 

@@ -7,7 +7,7 @@ class Account {
 
     private double balance;
 
-    void addIncome(double income) {
+    void decreaseBalance(double income) {
         this.balance += income;
     }
 

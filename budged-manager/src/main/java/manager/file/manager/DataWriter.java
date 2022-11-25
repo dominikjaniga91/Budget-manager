@@ -18,7 +18,7 @@ final class DataWriter {
     static void savePurchasesToFile(List<Purchase> purchases) {
         Path path = Paths.get("purchases.txt");
 
-        try(var writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE_NEW)) {
+        try(var writer = Files.newBufferedWriter(path, StandardOpenOption.TRUNCATE_EXISTING)) {
             writePurchases(purchases, writer);
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
