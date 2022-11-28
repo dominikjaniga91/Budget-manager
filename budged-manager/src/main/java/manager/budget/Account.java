@@ -7,11 +7,11 @@ class Account {
 
     private double balance;
 
-    void decreaseBalance(double income) {
+    void addIncome(double income) {
         this.balance += income;
     }
 
-    void addPurchase(double purchase) {
+    void decreaseBalance(double purchase) {
         this.balance -= purchase;
     }
 
@@ -20,6 +20,10 @@ class Account {
     }
 
     boolean canPurchase(Purchase purchase) {
-        return this.balance > purchase.getAmount();
+        return hasEnoughBalance(purchase.getAmount());
+    }
+
+    boolean hasEnoughBalance(Double purchasesTotalAmount) {
+        return Double.compare(this.balance, purchasesTotalAmount) >= 0;
     }
 }

@@ -1,6 +1,7 @@
 package manager.menu;
 
 import manager.actions.ActionInspector;
+
 import java.util.Map;
 import java.util.Optional;
 
@@ -40,6 +41,7 @@ class MenuChild implements Menu {
         return actionInspector;
     }
 
+    @Override
     public Menu selectMenuOption(int option) {
         Optional<Option> selectedOption = this.submenu.keySet().stream().filter(e -> e.getNumber() == option).findFirst();
         if (selectedOption.isPresent()) {

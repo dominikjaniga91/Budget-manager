@@ -11,7 +11,8 @@ public class ShowPurchaseList implements Action {
     private final BudgetManager budgetManager;
     private final PurchaseCategory purchaseCategory;
 
-    public ShowPurchaseList(BudgetManager budgetManager, PurchaseCategory purchaseCategory) {
+    public ShowPurchaseList(BudgetManager budgetManager,
+                            PurchaseCategory purchaseCategory) {
         this.budgetManager = budgetManager;
         this.purchaseCategory = purchaseCategory;
     }

@@ -23,7 +23,7 @@ public interface Menu {
         return true;
     }
 
-    default boolean exit() {
+    default boolean canExit() {
         return false;
     }
 }

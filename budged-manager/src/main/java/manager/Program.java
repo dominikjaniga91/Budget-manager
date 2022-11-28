@@ -15,14 +15,20 @@ class Program {
         MenuInitializer initializer = new MenuInitializer(budgetManager, reader);
         Menu currentMenu = initializer.initializeMenu();
 
-        while (!currentMenu.exit()) {
-
+        while (!currentMenu.canExit()) {
             currentMenu.show();
             int userAction = reader.readAction();
             currentMenu = currentMenu.selectMenuOption(userAction);
 
             ActionInspector actionInspector = currentMenu.checkAction();
+
+            /* TODO: Can it be done in more functional way?
+                something like:
+                currentMenu.performActionIf(ActionInspector::canPerformAction)
+                            .orELse(Menu::cancelAction)
+             */
             if (actionInspector.canPerformAction()) {
+                //TODO: Can we pass the purchase type here instead of in the constructor?
                 currentMenu = currentMenu.performAction();
             } else {
                 currentMenu = currentMenu.back();

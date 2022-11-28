@@ -1,7 +1,5 @@
 package manager.menu;
 
-import java.util.Objects;
-
 /**
  * @author Dominik_Janiga
  */
@@ -17,19 +15,6 @@ class Option {
 
     int getNumber() {
         return number;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Option option = (Option) o;
-        return number == option.number;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(number);
     }
 
     @Override

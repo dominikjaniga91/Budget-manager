@@ -14,11 +14,12 @@ public class PurchaseByCategorySorter implements Action {
         this.budgetManager = budgetManager;
     }
 
+    /* TODO: Is it ok that this class implement action?
+        Maybe it should implement another interface like Analyzer
+     */
     @Override
     public void perform() {
-
         Map<PurchaseCategory, Double> purchaseToCostMap = PurchaseCategory.getEnumMap();
-
         this.budgetManager.getAllPurchases()
                 .forEach(purchase -> purchaseToCostMap.merge(
                                 purchase.getCategory(),

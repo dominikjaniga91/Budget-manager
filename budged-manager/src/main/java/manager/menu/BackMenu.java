@@ -7,7 +7,7 @@ class BackMenu implements Menu {
 
     private final Menu parent;
 
-    public BackMenu(Menu parent) {
+    BackMenu(Menu parent) {
         this.parent = parent;
     }
 

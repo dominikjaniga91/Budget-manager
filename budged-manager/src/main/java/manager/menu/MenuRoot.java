@@ -31,6 +31,7 @@ class MenuRoot implements Menu {
         return this;
     }
 
+    @Override
     public Menu selectMenuOption(int option) {
         return this.submenu.entrySet().stream()
                 .filter(e -> e.getKey().getNumber() == option).

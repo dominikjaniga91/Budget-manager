@@ -17,6 +17,9 @@ public class PurchaseConcreteCategorySorter implements Action {
         this.category = category;
     }
 
+    /* TODO: Is it ok that this class implement action?
+        Maybe it should implement another interface like Analyzer
+     */
     @Override
     public void perform() {
         List<Purchase> allPurchases = this.budgetManager.getAllPurchases();

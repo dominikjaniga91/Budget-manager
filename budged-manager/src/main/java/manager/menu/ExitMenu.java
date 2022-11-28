@@ -20,7 +20,7 @@ class ExitMenu implements Menu {
     }
 
     @Override
-    public boolean exit() {
+    public boolean canExit() {
         return true;
     }
 

@@ -11,7 +11,7 @@ class ActionMenu implements Menu {
     private final Menu parent;
     private final Action action;
 
-    public ActionMenu(Menu parent, Action action) {
+    ActionMenu(Menu parent, Action action) {
         this.parent = parent;
         this.action = action;
     }
@@ -21,6 +21,7 @@ class ActionMenu implements Menu {
         return this.parent;
     }
 
+    @Override
     public void show() {
         this.parent.show();
     }
